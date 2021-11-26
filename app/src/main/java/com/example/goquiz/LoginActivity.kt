@@ -1,15 +1,20 @@
 package com.example.goquiz
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.goquiz.data.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
+
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var  auth: FirebaseAuth
+    private lateinit var dbref: DatabaseReference
+    private var userArrayList = ArrayList<User>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +29,40 @@ class LoginActivity : AppCompatActivity() {
         val password=editTextPassword.text.toString()
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             if(task.isSuccessful){
-                val intent= Intent(this,MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                //Integrating firebase auth and realtime database
+                dbref = FirebaseDatabase.getInstance().getReference("users/${auth.uid.toString()}")
+                val addValueEventListener =
+                    dbref.addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val name = snapshot.child("name").value.toString()
+                            val role_id = snapshot.child("role_id").value.toString()
+                            val user = User(name, role_id.toInt())
+                            userArrayList.add(user)
+
+                            //Debugging
+//                        Toast.makeText(applicationContext,
+//                            "nama ${name} role idnya ${role_id}", Toast.LENGTH_LONG).show()
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Toast.makeText(
+                                applicationContext,
+                                error.message,
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    })
+                var name : String = userArrayList.last().name.toString()
+                var role_id: Int? = userArrayList.last().role_id
+                Toast.makeText(applicationContext, "nama $name role idnya ${role_id.toString()}", Toast.LENGTH_LONG).show()
+
+
+
+//                val intent= Intent(this,MainActivity::class.java)
+//
+//
+//                startActivity(intent)
+//                finish()
             }
         }.addOnFailureListener { exception ->
             Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()

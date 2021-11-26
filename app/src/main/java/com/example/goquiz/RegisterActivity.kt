@@ -54,13 +54,23 @@ class RegisterActivity : AppCompatActivity() {
 
                 database = FirebaseDatabase.getInstance().getReference("users")
                 val user = database.child(uid)
+
+                //Memasukkan anak baru ke database "users"
                 user.setValue(dataPengguna).addOnSuccessListener {
                     Toast.makeText(applicationContext, "email $mail  uidnya $uid role idnya $role_id", Toast.LENGTH_LONG).show()
                 }
 
 
 
-                val intent= Intent(this,MainActivity::class.java)
+//                val intent= Intent(this,MainActivity::class.java)
+
+                val intent: Intent
+                if (role_id == 1){
+                    intent = Intent(this, StudentMainMenuActivity::class.java)
+                }else{
+                    intent = Intent(this, TeacherMainMenuActivity::class.java)
+                }
+
                 startActivity(intent)
                 finish()
             }
