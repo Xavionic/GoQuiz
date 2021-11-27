@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/uncompletedQuiz_fragment"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/quizTitle"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="UTS Keamanan Informasi"/>
+    <TextView
+        android:id="@+id/nameTeacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fariz"/>
+    <TextView
+        android:id="@+id/quizDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="90 Min"/>
+    <TextView
+        android:id="@+id/quizDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30 December 2021, 23:00"/>
+</LinearLayout>
