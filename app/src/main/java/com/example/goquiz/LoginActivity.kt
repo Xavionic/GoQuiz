@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
     private lateinit var  auth: FirebaseAuth
     private lateinit var dbref: DatabaseReference
-    private var userArrayList = ArrayList<User>()
+    private lateinit var userArrayList: ArrayList<User>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,43 +24,41 @@ class LoginActivity : AppCompatActivity() {
         auth= FirebaseAuth.getInstance()
     }
 
+    fun getRoleData(){
+        dbref = FirebaseDatabase.getInstance().getReference("users/${auth.uid.toString()}")
+        val addValueEventListener =
+            dbref.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var name = snapshot.child("name").value.toString()
+                    var role_id = snapshot.child("role_id").value.toString()
+                    var user = User(name, role_id)
+                    Toast.makeText(applicationContext, "nama ${name} role idnya ${role_id}", Toast.LENGTH_LONG).show()
+                    userArrayList.add(user)
+//                    var name2 : String = userArrayList.last().name.toString()
+//                    var role_id2: String = userArrayList.last().role_id.toString()
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        applicationContext,
+                        error.message,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+    }
+
     fun login(view: View){
         val email=editTextEmailAddress.text.toString()
         val password=editTextPassword.text.toString()
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             if(task.isSuccessful){
                 //Integrating firebase auth and realtime database
-                dbref = FirebaseDatabase.getInstance().getReference("users/${auth.uid.toString()}")
-                val addValueEventListener =
-                    dbref.addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            val name = snapshot.child("name").value.toString()
-                            val role_id = snapshot.child("role_id").value.toString()
-                            val user = User(name, role_id.toInt())
-                            userArrayList.add(user)
-
-                            //Debugging
-//                        Toast.makeText(applicationContext,
-//                            "nama ${name} role idnya ${role_id}", Toast.LENGTH_LONG).show()
-                        }
-
-                        override fun onCancelled(error: DatabaseError) {
-                            Toast.makeText(
-                                applicationContext,
-                                error.message,
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    })
-                var name : String = userArrayList.last().name.toString()
-                var role_id: Int? = userArrayList.last().role_id
-                Toast.makeText(applicationContext, "nama $name role idnya ${role_id.toString()}", Toast.LENGTH_LONG).show()
-
+                getRoleData()
 
 
 //                val intent= Intent(this,MainActivity::class.java)
-//
-//
 //                startActivity(intent)
 //                finish()
             }

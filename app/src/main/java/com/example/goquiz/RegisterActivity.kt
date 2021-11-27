@@ -56,9 +56,11 @@ class RegisterActivity : AppCompatActivity() {
                 val user = database.child(uid)
 
                 //Memasukkan anak baru ke database "users"
-                user.setValue(dataPengguna).addOnSuccessListener {
-                    Toast.makeText(applicationContext, "email $mail  uidnya $uid role idnya $role_id", Toast.LENGTH_LONG).show()
-                }
+                user.setValue(dataPengguna)
+                        //debug
+//                    .addOnSuccessListener {
+//                    Toast.makeText(applicationContext, "email $mail  uidnya $uid role idnya $role_id", Toast.LENGTH_LONG).show()
+//                }
 
 
 
