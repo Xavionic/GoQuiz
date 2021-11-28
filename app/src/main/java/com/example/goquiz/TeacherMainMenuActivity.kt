@@ -7,15 +7,34 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import java.util.ArrayList
 
 class TeacherMainMenuActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+    private lateinit var  auth: FirebaseAuth
+    private lateinit var dbref: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teacher_main_menu)
         auth = FirebaseAuth.getInstance()
-        title="Welcome Teacher ${auth.currentUser}"
+        title()
+
+    }
+
+    fun title(){
+        dbref = FirebaseDatabase.getInstance().getReference("users/${auth.uid.toString()}")
+        val addValueEventListener =
+            dbref.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var name = snapshot.child("name").value.toString()
+                    title = "Welcome teacher $name!"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(applicationContext, error.message, Toast.LENGTH_LONG).show()
+                }
+            })
     }
 
     fun signOut(view: View) {
