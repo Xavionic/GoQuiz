@@ -5,10 +5,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/overviewQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Soal 1"
+        android:text="Question 1"
         android:gravity="center"
         />
 

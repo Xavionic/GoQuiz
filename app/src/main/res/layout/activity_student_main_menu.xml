@@ -58,7 +58,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/btn_add"
+            android:id="@+id/btn_enroll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -69,7 +69,7 @@
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabQuiz2"
+        android:id="@+id/tabUncComQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -91,7 +91,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemQuiz"
+        android:id="@+id/listQuiz"
         android:layout_width="350dp"
         android:layout_height="380dp"
         android:layout_marginStart="8dp"
@@ -102,7 +102,7 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tabQuiz2"
+        app:layout_constraintTop_toTopOf="@id/tabUncComQuiz"
         tools:listitem="@layout/rv_uncompleted_quiz">
 
         <ScrollView
@@ -124,7 +124,6 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemQuiz" />
-
+        app:layout_constraintTop_toBottomOf="@+id/listQuiz" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
