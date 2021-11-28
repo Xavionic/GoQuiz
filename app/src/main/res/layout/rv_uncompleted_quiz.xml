@@ -1,34 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/quizTitle"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="UTS Keamanan Informasi"/>
-    <TextView
-        android:id="@+id/nameTeacher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fariz"/>
-    <TextView
-        android:id="@+id/quizDuration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="90 Min"/>
-    <TextView
-        android:id="@+id/quizDateTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="30 December 2021, 23:00"/>
-
-    <TextView
-        android:id="@+id/status"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_uncompleted_quiz"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Open" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_uncompleted_quiz" />
+
 </LinearLayout>

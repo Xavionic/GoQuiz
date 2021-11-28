@@ -1,37 +1,22 @@
 package com.example.goquiz
 
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goquiz.data.Quiz
-import java.time.format.DateTimeFormatter
 
-class StudentMainMenuAdapter(private val listQuiz: ArrayList<Quiz>):
-    RecyclerView.Adapter<StudentMainMenuAdapter.ListViewHolder>() {
-
-    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvQuizTitle: TextView = itemView.findViewById(R.id.quizTitle)
-        var tvTeacherName: TextView = itemView.findViewById(R.id.nameTeacher)
-        var tvQuizDuration: TextView = itemView.findViewById(R.id.quizDuration)
-        var tvQuizDateTime: TextView = itemView.findViewById(R.id.quizDateTime)
-        var tvStatus: TextView = itemView.findViewById(R.id.status)
-    }
+class ListQuizAdapter(private val listQuiz: ArrayList<Quiz>, private val onItemClickListener: ListUncompletedQuiz):
+    RecyclerView.Adapter<ListQuizAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
         val view =
             LayoutInflater.from(viewGroup.context).inflate(R.layout.rv_uncompleted_quiz, viewGroup, false)
         return ListViewHolder(view)
     }
-
-    override fun getItemCount(): Int = listQuiz.size
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val (quizTitle, teacherName, quizDuration, quizDateTime, status) = listQuiz
@@ -53,5 +38,24 @@ class StudentMainMenuAdapter(private val listQuiz: ArrayList<Quiz>):
             }
         }
     }
+
+    override fun getItemCount(): Int = listQuiz.size
+
+    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var tvQuizTitle: TextView = itemView.findViewById(R.id.quizTitle)
+        var tvTeacherName: TextView = itemView.findViewById(R.id.nameTeacher)
+        var tvQuizDuration: TextView = itemView.findViewById(R.id.quizDuration)
+        var tvQuizDateTime: TextView = itemView.findViewById(R.id.quizDateTime)
+        var tvStatus: TextView = itemView.findViewById(R.id.status)
+    }
+
+    interface OnItemClickListener {
+        fun onItemClicked(productModel: Quiz)
+    }
+
+
+
+
+
 }
 

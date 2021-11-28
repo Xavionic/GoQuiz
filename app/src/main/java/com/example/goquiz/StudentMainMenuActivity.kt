@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.example.goquiz.data.Quiz
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -20,6 +21,10 @@ class StudentMainMenuActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         title()
 
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_layoutStudent,ListUncompletedQuiz())
+            .addToBackStack("")
+            .commit()
     }
 
     fun title(){
