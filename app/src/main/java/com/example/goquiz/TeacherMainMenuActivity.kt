@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -29,6 +30,9 @@ class TeacherMainMenuActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     var name = snapshot.child("name").value.toString()
                     title = "Welcome teacher $name!"
+
+                    var text = findViewById<TextView>(R.id.nameTeacher)
+                    text.text = name
                 }
 
                 override fun onCancelled(error: DatabaseError) {
