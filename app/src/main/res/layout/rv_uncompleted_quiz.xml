@@ -3,7 +3,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/uncompletedQuiz_fragment"
     android:padding="16dp">
 
     <TextView
@@ -26,4 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="30 December 2021, 23:00"/>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open" />
 </LinearLayout>

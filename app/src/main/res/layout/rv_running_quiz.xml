@@ -4,7 +4,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/uncompletedQuiz_fragment"
     android:padding="16dp">
 
     <TextView
@@ -31,7 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="Yes, i am"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/opt3"
