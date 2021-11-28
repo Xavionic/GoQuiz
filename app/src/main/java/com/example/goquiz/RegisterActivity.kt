@@ -62,10 +62,6 @@ class RegisterActivity : AppCompatActivity() {
 //                    Toast.makeText(applicationContext, "email $mail  uidnya $uid role idnya $role_id", Toast.LENGTH_LONG).show()
 //                }
 
-
-
-//                val intent= Intent(this,MainActivity::class.java)
-
                 val intent: Intent
                 if (role_id == 1){
                     intent = Intent(this, StudentMainMenuActivity::class.java)
