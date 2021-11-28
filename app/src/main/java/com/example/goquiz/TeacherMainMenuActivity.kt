@@ -2,13 +2,18 @@ package com.example.goquiz
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.teacher_activity_main_menu.*
+
 
 class TeacherMainMenuActivity : AppCompatActivity() {
     private lateinit var  auth: FirebaseAuth
@@ -18,8 +23,33 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.teacher_activity_main_menu)
         auth = FirebaseAuth.getInstance()
+        val fragUnc = TeacherFragmentUncompletedQuiz()
+        val fragCom = TeacherFragmentCompletedQuiz()
+
         title()
 
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.viewPager, fragUnc)
+            commit()
+        }
+
+        findViewById<Button>(R.id.buttonNewQuiz).setOnClickListener{
+            Toast.makeText(this, "Fitur buat quiz belum tersedia", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.buttonUncompleted).setOnClickListener{
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.viewPager, fragUnc)
+                commit()
+            }
+        }
+
+        findViewById<Button>(R.id.buttonCompleted).setOnClickListener{
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.viewPager, fragCom)
+                commit()
+            }
+        }
     }
 
     fun title(){
