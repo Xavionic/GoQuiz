@@ -10,6 +10,6 @@
         android:id="@+id/rv_uncompleted_quiz"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_uncompleted_quiz" />
+        tools:listitem="@layout/student_item_uncompleted_quiz" />
 
 </LinearLayout>

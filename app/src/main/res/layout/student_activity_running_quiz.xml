@@ -7,7 +7,7 @@
     tools:context=".StudentMainMenuActivity">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabQuiz"
+        android:id="@+id/tabQuizOverview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemOverviewQuiz"
+        android:id="@+id/listQuizQuestion"
         android:layout_width="350dp"
         android:layout_height="580dp"
         android:layout_marginStart="8dp"
@@ -40,8 +40,8 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tabQuiz"
-        tools:listitem="@layout/rv_overview_quiz">
+        app:layout_constraintTop_toTopOf="@id/tabQuizOverview"
+        tools:listitem="@layout/student_rv_uncompleted_quiz">
 
         <ScrollView
             android:id="@+id/svQuiz"
@@ -53,16 +53,16 @@
 
 
     <Button
-        android:id="@+id/buttonSubmit"
+        android:id="@+id/buttonFinish"
         android:layout_width="206dp"
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
         android:onClick="signOut"
-        android:text="SUBMIT"
+        android:text="FINISH"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemOverviewQuiz" />
+        app:layout_constraintTop_toBottomOf="@+id/listQuizQuestion" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

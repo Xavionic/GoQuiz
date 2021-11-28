@@ -9,7 +9,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import java.util.ArrayList
 
 class TeacherMainMenuActivity : AppCompatActivity() {
     private lateinit var  auth: FirebaseAuth
@@ -17,7 +16,7 @@ class TeacherMainMenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_teacher_main_menu)
+        setContentView(R.layout.teacher_activity_main_menu)
         auth = FirebaseAuth.getInstance()
         title()
 

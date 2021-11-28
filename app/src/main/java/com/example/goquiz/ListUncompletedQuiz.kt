@@ -20,7 +20,7 @@ class ListUncompletedQuiz : Fragment(), ListQuizAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.rv_uncompleted_quiz, container, false)
+        return inflater.inflate(R.layout.student_rv_uncompleted_quiz, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

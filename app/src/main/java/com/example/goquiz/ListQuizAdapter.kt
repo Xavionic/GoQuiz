@@ -3,7 +3,6 @@ package com.example.goquiz
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,7 @@ class ListQuizAdapter(private val listQuiz: ArrayList<Quiz>, private val onItemC
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
         val view =
-            LayoutInflater.from(viewGroup.context).inflate(R.layout.rv_uncompleted_quiz, viewGroup, false)
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.student_rv_uncompleted_quiz, viewGroup, false)
         return ListViewHolder(view)
     }
 

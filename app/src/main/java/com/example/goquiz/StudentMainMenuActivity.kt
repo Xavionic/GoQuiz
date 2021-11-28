@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import com.example.goquiz.data.Quiz
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -17,7 +16,7 @@ class StudentMainMenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_student_main_menu)
+        setContentView(R.layout.student_activity_main_menu)
         auth = FirebaseAuth.getInstance()
         title()
 
