@@ -3,39 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/activity_overview_quiz.xml" value="0.2" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/activity_running_quiz.xml" value="0.25" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/activity_student_main_menu.xml" value="0.25" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/activity_teacher_main_menu.xml" value="0.22" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/fragment_overview_quiz.xml" value="0.33" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/item_completed_quiz.xml" value="0.1" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/item_uncompleted_quiz.xml" value="0.2289156626506024" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/list_completed_quiz.xml" value="0.33" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/list_completedquiz.xml" value="0.1911231884057971" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/list_quiz.xml" value="0.1911231884057971" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/list_uncompleted_quiz.xml" value="0.2" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/rv_completed_quiz.xml" value="0.20416666666666666" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/rv_overview_quiz.xml" value="0.12239583333333333" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/rv_running_quiz.xml" value="0.22" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/rv_uncompleted_quiz.xml" value="0.2" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/soal_quiz.xml" value="0.20416666666666666" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/student_activity_main_menu.xml" value="0.33" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/student_fragment_completed_quiz.xml" value="0.18070652173913043" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/student_item_uncompleted_quiz.xml" value="0.18070652173913043" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/student_rv_completed_quiz.xml" value="0.1" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/student_rv_uncompleted_quiz.xml" value="0.1" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/teacher_activity_main_menu.xml" value="0.22" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/teacher_fragment_completed_quiz.xml" value="0.18070652173913043" />
-        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/teacher_fragment_uncompleted_quiz.xml" value="0.18070652173913043" />
         <entry key="app/src/main/res/drawable-v24/edittextbackground.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_running_quiz.xml" value="0.13072916666666667" />
         <entry key="app/src/main/res/layout/activity_student_main_menu.xml" value="0.134375" />
         <entry key="app/src/main/res/layout/activity_teacher_main_menu.xml" value="0.134375" />
+        <entry key="app/src/main/res/layout/rv_completed_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/rv_overview_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/student_activity_main_menu.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/student_rv_overview_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/student_rv_running_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/student_rv_uncompleted_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/teacher_activity_main_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/teacher_fragment_completed_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/teacher_fragment_uncompleted_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/teacher_item_row_quiz.xml" value="0.16485507246376813" />
       </map>
     </option>
   </component>
