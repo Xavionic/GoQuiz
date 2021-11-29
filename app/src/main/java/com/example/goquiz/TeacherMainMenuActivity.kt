@@ -8,8 +8,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.teacher_activity_main_menu.*
@@ -29,24 +27,20 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         title()
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.viewPager, fragUnc)
+            replace(R.id.viewPagerTeacher, fragUnc)
             commit()
-        }
-
-        findViewById<Button>(R.id.buttonNewQuiz).setOnClickListener{
-            Toast.makeText(this, "Fitur buat quiz belum tersedia", Toast.LENGTH_SHORT).show()
         }
 
         findViewById<Button>(R.id.buttonUncompleted).setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.viewPager, fragUnc)
+                replace(R.id.viewPagerTeacher, fragUnc)
                 commit()
             }
         }
 
         findViewById<Button>(R.id.buttonCompleted).setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.viewPager, fragCom)
+                replace(R.id.viewPagerTeacher, fragCom)
                 commit()
             }
         }
@@ -68,6 +62,11 @@ class TeacherMainMenuActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, error.message, Toast.LENGTH_LONG).show()
                 }
             })
+    }
+
+    fun createQuiz(view: View){
+        var intent = Intent(applicationContext, TeacherCreateQuizActivity::class.java)
+        startActivity(intent)
     }
 
     fun signOut(view: View) {

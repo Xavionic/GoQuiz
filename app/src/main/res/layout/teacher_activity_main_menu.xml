@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/welcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,14 +52,22 @@
             android:id="@+id/buttonNewQuiz"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Create Quiz" />
+            android:background="@color/purple_700"
+            android:onClick="createQuiz"
+            android:text="Create Quiz"
+            android:textColor="#6D4C41" />
     </androidx.cardview.widget.CardView>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/viewPager"
-        android:name="com.example.goquiz.TeacherFragmentCompletedQuiz"
+        android:id="@+id/viewPagerTeacher"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +77,8 @@
         android:id="@+id/linearTab"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/purple_500"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_lock_power_off"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

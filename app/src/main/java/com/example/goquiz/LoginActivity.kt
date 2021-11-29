@@ -27,35 +27,42 @@ class LoginActivity : AppCompatActivity() {
     fun login(view: View){
         val email=editTextEmailAddress.text.toString()
         val password=editTextPassword.text.toString()
-        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-            if(task.isSuccessful){
-                //Integrating firebase auth and realtime database
-                dbref = FirebaseDatabase.getInstance().getReference("users/${auth.uid.toString()}")
-                val addValueEventListener =
-                    dbref.addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
+
+        if (email == "" || password == ""){
+            Toast.makeText(this, "Fill the form correctly!", Toast.LENGTH_SHORT).show()
+        }else{
+            auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
+                if(task.isSuccessful){
+                    //Integrating firebase auth and realtime database
+                    dbref = FirebaseDatabase.getInstance().getReference("users/${auth.uid.toString()}")
+                    val addValueEventListener =
+                        dbref.addValueEventListener(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
 //                            var name = snapshot.child("name").value.toString()
-                            var role_id = snapshot.child("role_id").value.toString()
+                                var role_id = snapshot.child("role_id").value.toString()
 
-                            if (role_id.toInt() == 1){
-                                var intent = Intent(applicationContext, StudentMainMenuActivity::class.java)
-                                startActivity(intent)
-                                finish()
-                            }else{
-                                var intent = Intent(applicationContext, TeacherMainMenuActivity::class.java)
-                                startActivity(intent)
-                                finish()
+                                if (role_id.toInt() == 1){
+                                    var intent = Intent(applicationContext, StudentMainMenuActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }else{
+                                    var intent = Intent(applicationContext, TeacherMainMenuActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
                             }
-                        }
 
-                        override fun onCancelled(error: DatabaseError) {
-                            Toast.makeText(applicationContext, error.message, Toast.LENGTH_LONG).show()
-                        }
-                    })
+                            override fun onCancelled(error: DatabaseError) {
+                                Toast.makeText(applicationContext, error.message, Toast.LENGTH_LONG).show()
+                            }
+                        })
+                }
+            }.addOnFailureListener { exception ->
+                Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
             }
-        }.addOnFailureListener { exception ->
-            Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
         }
+
+
     }
 
     fun goToRegister(view: View){

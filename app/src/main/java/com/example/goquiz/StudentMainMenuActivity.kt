@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.student_activity_main_menu.*
 
 class StudentMainMenuActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -71,5 +73,11 @@ class StudentMainMenuActivity : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    fun enroll(view: View) {
+//        ETenrollKey.text = "Enter Quiz e-Key Here"
+        ETenrollKey.setText("")
+        Toast.makeText(this, "Maaf fitur belum tersedia", Toast.LENGTH_SHORT).show()
     }
 }
