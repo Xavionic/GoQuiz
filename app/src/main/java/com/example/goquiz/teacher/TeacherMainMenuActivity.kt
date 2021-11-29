@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.goquiz.R
 import com.example.goquiz.authentification.LoginActivity
+import com.example.goquiz.data.quiz.Quiz
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -68,6 +69,13 @@ class TeacherMainMenuActivity : AppCompatActivity() {
     fun createQuiz(view: View){
         var intent = Intent(applicationContext, TeacherCreateQuizActivity::class.java)
         startActivity(intent)
+    }
+
+    fun navigateWithData(quiz: Quiz){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.viewPagerTeacher,TeacherDetailQuiz(quiz))
+            .addToBackStack("")
+            .commit()
     }
 
     fun signOut(view: View) {
