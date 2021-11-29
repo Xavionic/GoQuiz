@@ -1,4 +1,4 @@
-package com.example.goquiz
+package com.example.goquiz.authentification
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,9 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
+import com.example.goquiz.R
+import com.example.goquiz.student.StudentMainMenuActivity
+import com.example.goquiz.teacher.TeacherMainMenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -81,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun goToLogin(view: View){
-        val intent= Intent(this,LoginActivity::class.java)
+        val intent= Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
 

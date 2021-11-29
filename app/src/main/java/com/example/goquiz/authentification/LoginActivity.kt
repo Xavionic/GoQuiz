@@ -1,12 +1,13 @@
-package com.example.goquiz
+package com.example.goquiz.authentification
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.goquiz.data.User
+import com.example.goquiz.R
+import com.example.goquiz.student.StudentMainMenuActivity
+import com.example.goquiz.teacher.TeacherMainMenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun goToRegister(view: View){
-        val intent= Intent(this,RegisterActivity::class.java)
+        val intent= Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
 }

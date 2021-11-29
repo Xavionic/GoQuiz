@@ -1,46 +1,51 @@
-package com.example.goquiz
+package com.example.goquiz.student
 
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.example.goquiz.R
+import com.example.goquiz.authentification.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.teacher_activity_main_menu.*
+import kotlinx.android.synthetic.main.student_activity_main_menu.*
 
-
-class TeacherMainMenuActivity : AppCompatActivity() {
-    private lateinit var  auth: FirebaseAuth
+class StudentMainMenuActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     private lateinit var dbref: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.teacher_activity_main_menu)
+        setContentView(R.layout.student_activity_main_menu)
         auth = FirebaseAuth.getInstance()
-        val fragUnc = TeacherFragmentUncompletedQuiz()
-        val fragCom = TeacherFragmentCompletedQuiz()
+        val fragUnc = StudentFragmentUncompletedQuiz()
+        val fragCom = StudentFragmentCompletedQuiz()
 
         title()
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.viewPagerTeacher, fragUnc)
+            replace(R.id.viewPagerStudent, fragUnc)
             commit()
         }
 
-        findViewById<Button>(R.id.buttonUncompleted).setOnClickListener{
+        findViewById<Button>(R.id.btn_enroll).setOnClickListener{
+            Toast.makeText(this, "Quiz belum tersedia", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.buttonUncompletedStudent).setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.viewPagerTeacher, fragUnc)
+                replace(R.id.viewPagerStudent, fragUnc)
                 commit()
             }
         }
 
-        findViewById<Button>(R.id.buttonCompleted).setOnClickListener{
+        findViewById<Button>(R.id.buttonCompletedStudent).setOnClickListener{
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.viewPagerTeacher, fragCom)
+                replace(R.id.viewPagerStudent, fragCom)
                 commit()
             }
         }
@@ -52,9 +57,9 @@ class TeacherMainMenuActivity : AppCompatActivity() {
             dbref.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     var name = snapshot.child("name").value.toString()
-                    title = "Welcome teacher $name!"
+                    title = "Welcome student $name!"
 
-                    var text = findViewById<TextView>(R.id.nameTeacher)
+                    var text = findViewById<TextView>(R.id.nameStudent)
                     text.text = name
                 }
 
@@ -64,15 +69,16 @@ class TeacherMainMenuActivity : AppCompatActivity() {
             })
     }
 
-    fun createQuiz(view: View){
-        var intent = Intent(applicationContext, TeacherCreateQuizActivity::class.java)
-        startActivity(intent)
-    }
-
     fun signOut(view: View) {
         auth.signOut()
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    fun enroll(view: View) {
+//        ETenrollKey.text = "Enter Quiz e-Key Here"
+        ETenrollKey.setText("")
+        Toast.makeText(this, "Maaf fitur belum tersedia", Toast.LENGTH_SHORT).show()
     }
 }
