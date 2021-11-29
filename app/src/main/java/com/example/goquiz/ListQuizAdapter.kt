@@ -7,7 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goquiz.data.Quiz
-
+/*
 class ListQuizAdapter(private val listQuiz: ArrayList<Quiz>, private val onItemClickListener: ListUncompletedQuiz):
     RecyclerView.Adapter<ListQuizAdapter.ListViewHolder>() {
 
@@ -58,3 +58,4 @@ class ListQuizAdapter(private val listQuiz: ArrayList<Quiz>, private val onItemC
 
 }
 
+*/

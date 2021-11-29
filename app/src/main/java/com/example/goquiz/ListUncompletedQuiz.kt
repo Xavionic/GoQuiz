@@ -10,10 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goquiz.data.Quiz
 
-
+/*
 class ListUncompletedQuiz : Fragment(), ListQuizAdapter.OnItemClickListener {
-    // TODO: Rename and change types of parameters
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +41,7 @@ class ListUncompletedQuiz : Fragment(), ListQuizAdapter.OnItemClickListener {
         rv_uncompleted_quiz.adapter = listQuizAdapter
         rv_uncompleted_quiz.layoutManager = LinearLayoutManager(requireContext())
 
-//        childFragmentManager?.beginTransaction()
+    //        childFragmentManager?.beginTransaction()
     }
 
     override fun onItemClicked(productModel: Quiz) {
@@ -56,3 +54,4 @@ class ListUncompletedQuiz : Fragment(), ListQuizAdapter.OnItemClickListener {
         }
     }
 }
+*/

@@ -68,32 +68,40 @@
 
     </LinearLayout>
 
-    <com.google.android.material.tabs.TabLayout
+    <LinearLayout
         android:id="@+id/tabUncComQuiz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintTop_toTopOf="@id/layout_inputKeyStudent">
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/viewPagerStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_inputKeyStudent">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabUncQuiz"
+        <Button
+            android:id="@+id/buttonUncompletedStudent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Uncompleted Quiz" />
+            android:layout_weight="1"
+            android:text="UNCOMPLETED" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabComQuiz"
+        <Button
+            android:id="@+id/buttonCompletedStudent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Completed Quiz" />
-    </com.google.android.material.tabs.TabLayout>
+            android:layout_weight="1"
+            android:text="COMPLETED" />
+    </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fragment_layoutStudent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/viewPagerStudent"
         android:layout_width="362dp"
         android:layout_height="420dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"

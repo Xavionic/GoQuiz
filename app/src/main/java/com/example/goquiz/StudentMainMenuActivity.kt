@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -18,12 +19,33 @@ class StudentMainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.student_activity_main_menu)
         auth = FirebaseAuth.getInstance()
+        val fragUnc = StudentFragmentUncompletedQuiz()
+        val fragCom = StudentFragmentCompletedQuiz()
+
         title()
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_layoutStudent,ListUncompletedQuiz())
-            .addToBackStack("")
-            .commit()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.viewPagerStudent, fragUnc)
+            commit()
+        }
+
+        findViewById<Button>(R.id.btn_enroll).setOnClickListener{
+            Toast.makeText(this, "Quiz belum tersedia", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.buttonUncompletedStudent).setOnClickListener{
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.viewPagerStudent, fragUnc)
+                commit()
+            }
+        }
+
+        findViewById<Button>(R.id.buttonCompletedStudent).setOnClickListener{
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.viewPagerStudent, fragCom)
+                commit()
+            }
+        }
     }
 
     fun title(){
