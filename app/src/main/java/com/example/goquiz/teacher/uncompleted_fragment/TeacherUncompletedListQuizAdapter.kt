@@ -22,8 +22,8 @@ class TeacherUncompletedListQuizAdapter(
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val (teacher_uid, description, start_time, end_time) = listQuiz[position]
         holder.tvDescriptionQuiz.text = description
-        holder.tvStartTime.text = start_time
-        holder.tvEndTime.text = end_time
+        holder.tvStartTime.text = "Start $start_time"
+        holder.tvEndTime.text =   "End   $end_time"
 
         holder.itemView.setOnClickListener {
 //            Toast.makeText(holder.itemView.context, "Kamu memilih " + listQuiz[holder.adapterPosition].description, Toast.LENGTH_SHORT).show()

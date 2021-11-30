@@ -1,17 +1,13 @@
 package com.example.goquiz.teacher.uncompleted_fragment
 
-import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.goquiz.R
 import com.example.goquiz.data.Kuis
-import com.example.goquiz.data.quiz.Quiz
-import org.w3c.dom.Text
 
 class TeacherUncompletedQuizDetail(private val kuis: Kuis) : Fragment() {
     // TODO: Rename and change types of parameters
@@ -26,8 +22,8 @@ class TeacherUncompletedQuizDetail(private val kuis: Kuis) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val title = view.findViewById<TextView>(R.id.title_detail)
-        val detail = view.findViewById<TextView>(R.id.desc_detail)
+        val title = view.findViewById<TextView>(R.id.tvQuizDescription)
+        val detail = view.findViewById<TextView>(R.id.tvQuizStartTime)
         detail.text = "DETAIL"
         title.text = "JUDUL"
     }

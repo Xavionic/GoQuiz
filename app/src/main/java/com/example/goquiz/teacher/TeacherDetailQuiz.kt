@@ -1,22 +1,11 @@
 package com.example.goquiz.teacher
 
-import android.media.Image
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.goquiz.data.Kuis
 import com.example.goquiz.R
-import com.example.goquiz.teacher.uncompleted_fragment.TeacherFragmentUncompletedQuiz
-import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment
-import com.google.firebase.auth.FirebaseAuth
-
-import org.w3c.dom.Text
 
 //class TeacherDetailQuiz(
 //    private val kuis: Kuis
@@ -45,12 +34,21 @@ class TeacherDetailQuiz( val kuis: Kuis = Kuis("-", "TERJADI KESALAHAN", "-", "-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.teacher_uncompleted_fragment_detail)
 
-        val tit = findViewById<TextView>(R.id.title_detail)
-        val detail = findViewById<TextView>(R.id.desc_detail)
+        val desc = findViewById<TextView>(R.id.tvQuizDescription)
+        val start = findViewById<TextView>(R.id.tvQuizStartTime)
+        val end = findViewById<TextView>(R.id.tvQuizEndTime)
+
+        var fragQuest = TeacherFragmentQuestion()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.viewPagerQuestion, fragQuest)
+            commit()
+        }
 
         title = "Detail of ${intent.getStringExtra("DESKRIPSI_KUIS")}"
-        tit.text = intent.getStringExtra("DESKRIPSI_KUIS")
-        detail.text = intent.getStringExtra("START_TIME_KUIS")
+        desc.text = intent.getStringExtra("DESKRIPSI_KUIS")
+        start.text = "Start ${intent.getStringExtra("START_TIME_KUIS")}"
+        end.text = "End ${intent.getStringExtra("END_TIME_KUIS")}"
+
 
     }
 }
