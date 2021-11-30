@@ -10,9 +10,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.goquiz.R
 import com.example.goquiz.authentification.LoginActivity
-import com.example.goquiz.data.quiz.Quiz
+import com.example.goquiz.data.Kuis
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizDetail
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherFragmentUncompletedQuiz
+import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -30,16 +31,17 @@ class TeacherMainMenuActivity : AppCompatActivity() {
 
         title()
 
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.viewPagerTeacher, fragUnc)
-            commit()
-        }
+        supportFragmentManager.beginTransaction()
+            .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
+            .addToBackStack("")
+            .commit()
+
 
         findViewById<Button>(R.id.buttonUncompleted).setOnClickListener{
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.viewPagerTeacher, fragUnc)
-                commit()
-            }
+            supportFragmentManager.beginTransaction()
+                .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
+                .addToBackStack("")
+                .commit()
         }
 
         findViewById<Button>(R.id.buttonCompleted).setOnClickListener{
@@ -73,11 +75,14 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun navigateWithData(quiz: Quiz){
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.viewPagerTeacher, TeacherUncompletedQuizDetail(quiz))
-            .addToBackStack("")
-            .commit()
+    fun navigateWithData(kuis: Kuis){
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.viewPagerTeacher, TeacherUncompletedQuizDetail(kuis))
+//            .addToBackStack("")
+//            .commit()
+
+        var intent = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
+        startActivity(intent)
     }
 
     fun signOut(view: View) {

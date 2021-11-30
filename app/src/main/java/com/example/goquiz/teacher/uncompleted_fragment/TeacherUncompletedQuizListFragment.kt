@@ -1,7 +1,6 @@
 package com.example.goquiz.teacher.uncompleted_fragment
 
 import com.example.goquiz.R
-import com.example.goquiz.data.quiz.Quiz
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,11 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.goquiz.data.quiz.Answer
-import com.example.goquiz.data.quiz.Question
-import com.example.goquiz.data.quiz.Response
-import com.example.goquiz.data.quiz.ResponseAnswer
+import com.example.goquiz.data.Kuis
 import com.example.goquiz.teacher.TeacherMainMenuActivity
+
 
 
 class TeacherUncompletedQuizListFragment : Fragment(), TeacherUncompletedListQuizAdapter.OnItemClickListener {
@@ -30,7 +27,19 @@ class TeacherUncompletedQuizListFragment : Fragment(), TeacherUncompletedListQui
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = ArrayList<Quiz>()
+        val list = ArrayList<Kuis>()
+        val kuis1 = Kuis("hx4AafymSfduHRNw0vlCkL8uYD73", "Kuis Matematika Peminatan 1", "2022/02/02 08:00:00", "2022/02/03 23:59:59")
+        val kuis2 = Kuis("hx4AafymSfduHRNw0vlCkL8uYD73", "UTS Sejarah 1", "2021/11/30 10:00:00", "2022/02/02 23:59:59")
+        val kuis3 = Kuis("hx4AafymSfduHRNw0vlCkL8uYD73", "Remedial Matematika Wajib 2", "2022/02/02 08:00:00", "2022/02/02 23:59:59")
+
+        list.add(kuis1)
+        list.add(kuis2)
+        list.add(kuis3)
+
+        val rvQuiz: RecyclerView = view.findViewById(R.id.rv_quizes)
+        val listQuizAdapter = TeacherUncompletedListQuizAdapter(list, this)
+        rvQuiz.adapter = listQuizAdapter
+        rvQuiz.layoutManager = LinearLayoutManager(requireContext())
 
 //        val quiz1 = Quiz(
 //            teacher_uid = "hx4AafymSfduHRNw0vlCkL8uYD73",
@@ -73,15 +82,10 @@ class TeacherUncompletedQuizListFragment : Fragment(), TeacherUncompletedListQui
 //        list.add(hero5)
 
 
-        val rvHeroes: RecyclerView = view.findViewById(R.id.rv_heroes)
-        val listHeroAdapter = TeacherUncompletedListQuizAdapter(list, this)
-        rvHeroes.adapter = listHeroAdapter
-        rvHeroes.layoutManager = LinearLayoutManager(requireContext())
-
 //        childFragmentManager?.beginTransaction()
     }
 
-    override fun onItemClicked(productModel: Quiz) {
-        (activity as TeacherMainMenuActivity).navigateWithData(quiz = productModel)
+    override fun onItemClicked(productModel: Kuis) {
+        (activity as TeacherMainMenuActivity).navigateWithData(kuis = productModel)
     }
 }

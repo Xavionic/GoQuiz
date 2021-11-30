@@ -6,10 +6,13 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tv_description_quiz"
             android:layout_width="match_parent"
@@ -32,5 +35,6 @@
             android:ellipsize="end"
             android:maxLines="2"
             tools:text="End 12/02/2022 23:59:59" />
+
     </LinearLayout>
 </LinearLayout>

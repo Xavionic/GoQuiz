@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goquiz.R
+import com.example.goquiz.data.Kuis
 import com.example.goquiz.data.quiz.Quiz
 
 class TeacherUncompletedListQuizAdapter(
-    private val listQuiz:ArrayList<Quiz>,
+    private val listQuiz:ArrayList<Kuis>,
     private val onItemClickListener: OnItemClickListener):
     RecyclerView.Adapter<TeacherUncompletedListQuizAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
@@ -18,16 +20,16 @@ class TeacherUncompletedListQuizAdapter(
         return ListViewHolder(view)
     }
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (photo, name, description) = listQuiz[position]
+        val (teacher_uid, description, start_time, end_time) = listQuiz[position]
+        holder.tvDescriptionQuiz.text = description
+        holder.tvStartTime.text = start_time
+        holder.tvEndTime.text = end_time
 
-//        holder.imgPhoto.setImageResource(photo)
-//        holder.tvName.text = name
-//        holder.tvDetail.text = description
-//
-//        holder.imgPhoto.setOnClickListener{
-//            onItemClickListener.onItemClicked(listHero[position])
-////            Toast.makeText(holder.itemView.context, listHero[position].name, Toast.LENGTH_SHORT).show()
-//        }
+        holder.itemView.setOnClickListener {
+            Toast.makeText(holder.itemView.context, "Kamu memilih " + listQuiz[holder.adapterPosition].description, Toast.LENGTH_SHORT).show()
+            onItemClickListener.onItemClicked(listQuiz[position])
+
+        }
     }
 
     override fun getItemCount(): Int = listQuiz.size
@@ -40,9 +42,7 @@ class TeacherUncompletedListQuizAdapter(
     }
 
     interface OnItemClickListener{
-        fun onItemClicked(productModel:Quiz)
+        fun onItemClicked(productModel:Kuis)
     }
-
-
 }
 
