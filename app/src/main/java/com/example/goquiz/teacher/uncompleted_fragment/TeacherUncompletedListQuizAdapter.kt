@@ -26,7 +26,7 @@ class TeacherUncompletedListQuizAdapter(
         holder.tvEndTime.text = end_time
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Kamu memilih " + listQuiz[holder.adapterPosition].description, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(holder.itemView.context, "Kamu memilih " + listQuiz[holder.adapterPosition].description, Toast.LENGTH_SHORT).show()
             onItemClickListener.onItemClicked(listQuiz[position])
 
         }

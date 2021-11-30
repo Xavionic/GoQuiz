@@ -1,4 +1,4 @@
-package com.example.goquiz.authentification
+package com.example.goquiz.authentication
 
 import android.content.Intent
 import android.os.Bundle

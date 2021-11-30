@@ -35,6 +35,10 @@ class TeacherUncompletedQuizListFragment : Fragment(), TeacherUncompletedListQui
         list.add(kuis1)
         list.add(kuis2)
         list.add(kuis3)
+        list.add(kuis2)
+        list.add(kuis2)
+        list.add(kuis2)
+
 
         val rvQuiz: RecyclerView = view.findViewById(R.id.rv_quizes)
         val listQuizAdapter = TeacherUncompletedListQuizAdapter(list, this)

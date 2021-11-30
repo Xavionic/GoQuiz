@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.goquiz.R
-import com.example.goquiz.authentification.LoginActivity
+import com.example.goquiz.authentication.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.student_activity_main_menu.*

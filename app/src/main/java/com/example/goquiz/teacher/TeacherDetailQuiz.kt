@@ -21,7 +21,6 @@ import org.w3c.dom.Text
 //class TeacherDetailQuiz(
 //    private val kuis: Kuis
 //) : Fragment() {
-//    // TODO: Rename and change types of parameters
 //    override fun onCreateView(
 //        inflater: LayoutInflater, container: ViewGroup?,
 //        savedInstanceState: Bundle?
@@ -40,7 +39,7 @@ import org.w3c.dom.Text
 //    }
 //}
 
-class TeacherDetailQuiz( private val kuis: Kuis) : AppCompatActivity() {
+class TeacherDetailQuiz( val kuis: Kuis = Kuis("-", "TERJADI KESALAHAN", "-", "-")) : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +47,10 @@ class TeacherDetailQuiz( private val kuis: Kuis) : AppCompatActivity() {
 
         val tit = findViewById<TextView>(R.id.title_detail)
         val detail = findViewById<TextView>(R.id.desc_detail)
-        detail.text = kuis.description
-        tit.text = kuis.start_time
+
+        title = "Detail of ${intent.getStringExtra("DESKRIPSI_KUIS")}"
+        tit.text = intent.getStringExtra("DESKRIPSI_KUIS")
+        detail.text = intent.getStringExtra("START_TIME_KUIS")
+
     }
 }

@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoQuiz">
-        <activity android:name=".authentification.LoginActivity">
+        <activity android:name=".authentication.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".authentification.RegisterActivity">
+        <activity android:name=".authentication.RegisterActivity">
 
         </activity>
         <activity android:name=".student.StudentMainMenuActivity">
@@ -36,6 +36,14 @@
         </activity>
 
         <activity android:name=".teacher.TeacherCreateQuizActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".teacher.TeacherDetailQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

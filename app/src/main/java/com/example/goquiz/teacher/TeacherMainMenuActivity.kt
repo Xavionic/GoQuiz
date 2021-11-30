@@ -9,9 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.goquiz.R
-import com.example.goquiz.authentification.LoginActivity
+import com.example.goquiz.authentication.LoginActivity
 import com.example.goquiz.data.Kuis
-import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizDetail
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherFragmentUncompletedQuiz
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -80,8 +79,16 @@ class TeacherMainMenuActivity : AppCompatActivity() {
 //            .replace(R.id.viewPagerTeacher, TeacherUncompletedQuizDetail(kuis))
 //            .addToBackStack("")
 //            .commit()
+//
+//        var intent = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
+//        startActivity(intent)
 
         var intent = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
+        intent.putExtra("UID_KUIS", kuis.teacher_uid);
+        intent.putExtra("DESKRIPSI_KUIS", kuis.description);
+        intent.putExtra("START_TIME_KUIS", kuis.start_time);
+        intent.putExtra("END_TIME_KUIS", kuis.end_time);
+
         startActivity(intent)
     }
 
