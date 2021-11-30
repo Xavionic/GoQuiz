@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".teacher.TeacherDetailQuiz">
+    tools:context=".teacher.TeacherQuestionDetail">
 
 
     <TextView
-        android:id="@+id/tvQuizDescription"
+        android:id="@+id/tvQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -19,7 +19,7 @@
         android:text="Quiz Description"/>
 
     <TextView
-        android:id="@+id/tvQuizStartTime"
+        android:id="@+id/tvAnswer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -27,7 +27,23 @@
         android:text="DWQMDMOWQ"/>
 
     <TextView
-        android:id="@+id/tvQuizEndTime"
+        android:id="@+id/tvAnswer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="DWQMDMOWQ"/>
+
+    <TextView
+        android:id="@+id/tvAnswer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="DWQMDMOWQ"/>
+
+    <TextView
+        android:id="@+id/tvAnswer4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -58,13 +74,6 @@
             android:text="DELETE"
             app:backgroundTint="#F44336" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Question lists:" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/viewPagerQuestion"
