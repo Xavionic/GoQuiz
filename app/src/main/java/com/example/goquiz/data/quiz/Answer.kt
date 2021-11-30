@@ -5,5 +5,5 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Answer(
-    var answer: String
+    var answer: String?
 ) : Parcelable

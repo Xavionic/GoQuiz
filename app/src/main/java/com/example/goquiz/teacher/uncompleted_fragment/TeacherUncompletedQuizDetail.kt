@@ -1,4 +1,4 @@
-package com.example.goquiz.teacher
+package com.example.goquiz.teacher.uncompleted_fragment
 
 import android.media.Image
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.example.goquiz.R
 import com.example.goquiz.data.quiz.Quiz
 import org.w3c.dom.Text
 
-class TeacherDetailQuiz(
+class TeacherUncompletedQuizDetail(
     private val quiz: Quiz
 ) : Fragment() {
     // TODO: Rename and change types of parameters

@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.goquiz.R
 import com.example.goquiz.authentification.LoginActivity
 import com.example.goquiz.data.quiz.Quiz
+import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizDetail
+import com.example.goquiz.teacher.uncompleted_fragment.TeacherFragmentUncompletedQuiz
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -73,7 +75,7 @@ class TeacherMainMenuActivity : AppCompatActivity() {
 
     fun navigateWithData(quiz: Quiz){
         supportFragmentManager.beginTransaction()
-            .replace(R.id.viewPagerTeacher,TeacherDetailQuiz(quiz))
+            .replace(R.id.viewPagerTeacher, TeacherUncompletedQuizDetail(quiz))
             .addToBackStack("")
             .commit()
     }

@@ -1,25 +1,25 @@
-package com.example.goquiz.teacher
+package com.example.goquiz.teacher.uncompleted_fragment
 
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goquiz.R
 import com.example.goquiz.data.quiz.Quiz
 
-class TeacherListQuizAdapter(private val listHero:ArrayList<Quiz>, private val onItemClickListener: OnItemClickListener):
-    RecyclerView.Adapter<TeacherListQuizAdapter.ListViewHolder>() {
+class TeacherUncompletedListQuizAdapter(
+    private val listQuiz:ArrayList<Quiz>,
+    private val onItemClickListener: OnItemClickListener):
+    RecyclerView.Adapter<TeacherUncompletedListQuizAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.teacher_item_row_uncompleted_quiz, viewGroup ,false)
         return ListViewHolder(view)
     }
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (photo, name, description) = listHero[position]
+        val (photo, name, description) = listQuiz[position]
+
 //        holder.imgPhoto.setImageResource(photo)
 //        holder.tvName.text = name
 //        holder.tvDetail.text = description
@@ -30,12 +30,13 @@ class TeacherListQuizAdapter(private val listHero:ArrayList<Quiz>, private val o
 //        }
     }
 
-    override fun getItemCount(): Int = listHero.size
+    override fun getItemCount(): Int = listQuiz.size
 
 
     inner class ListViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
-        var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
-        var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
+        var tvDescriptionQuiz: TextView = itemView.findViewById(R.id.tv_description_quiz)
+        var tvStartTime: TextView = itemView.findViewById(R.id.tv_start_time)
+        var tvEndTime: TextView = itemView.findViewById(R.id.tv_end_time)
     }
 
     interface OnItemClickListener{

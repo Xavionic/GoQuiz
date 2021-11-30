@@ -5,6 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ResponseAnswer(
-    var question_id : String?,
-    var answer_id : String?
+    var question_id: String?,
+    var answer_id : String? = ""
 ) : Parcelable
