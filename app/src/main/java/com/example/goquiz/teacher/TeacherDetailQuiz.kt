@@ -1,10 +1,9 @@
 package com.example.goquiz.teacher
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.goquiz.data.Kuis
+import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.R
 
 //class TeacherDetailQuiz(
@@ -28,7 +27,7 @@ import com.example.goquiz.R
 //    }
 //}
 
-class TeacherDetailQuiz( val kuis: Kuis = Kuis("-", "TERJADI KESALAHAN", "-", "-")) : AppCompatActivity() {
+class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN", "-", "-")) : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -5,14 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goquiz.R
-import com.example.goquiz.data.Kuis
-import com.example.goquiz.data.quiz.Quiz
+import com.example.goquiz.data.TempQuiz
 
 class TeacherUncompletedListQuizAdapter(
-    private val listQuiz:ArrayList<Kuis>,
+    private val listQuiz:ArrayList<TempQuiz>,
     private val onItemClickListener: OnItemClickListener):
     RecyclerView.Adapter<TeacherUncompletedListQuizAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
@@ -42,7 +40,7 @@ class TeacherUncompletedListQuizAdapter(
     }
 
     interface OnItemClickListener{
-        fun onItemClicked(productModel:Kuis)
+        fun onItemClicked(productModel:TempQuiz)
     }
 }
 

@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.goquiz.R
-import com.example.goquiz.data.Kuis
+import com.example.goquiz.data.TempQuiz
 
-class TeacherUncompletedQuizDetail(private val kuis: Kuis) : Fragment() {
+class TeacherUncompletedQuizDetail(private val kuis: TempQuiz) : Fragment() {
     // TODO: Rename and change types of parameters
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

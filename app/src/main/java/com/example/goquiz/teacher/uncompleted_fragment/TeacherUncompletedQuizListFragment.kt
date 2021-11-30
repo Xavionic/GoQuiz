@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.goquiz.data.Kuis
+import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.teacher.TeacherMainMenuActivity
 
 
@@ -27,10 +27,10 @@ class TeacherUncompletedQuizListFragment : Fragment(), TeacherUncompletedListQui
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = ArrayList<Kuis>()
-        val kuis1 = Kuis("hx4AafymSfduHRNw0vlCkL8uYD73", "Kuis Matematika Peminatan 1", "2022/02/02 08:00:00", "2022/02/03 23:59:59")
-        val kuis2 = Kuis("hx4AafymSfduHRNw0vlCkL8uYD73", "UTS Sejarah 1", "2021/11/30 10:00:00", "2022/02/02 23:59:59")
-        val kuis3 = Kuis("hx4AafymSfduHRNw0vlCkL8uYD73", "Remedial Matematika Wajib 2", "2022/02/02 08:00:00", "2022/02/02 23:59:59")
+        val list = ArrayList<TempQuiz>()
+        val kuis1 = TempQuiz("hx4AafymSfduHRNw0vlCkL8uYD73", "Kuis Matematika Peminatan 1", "2022/02/02 08:00:00", "2022/02/03 23:59:59")
+        val kuis2 = TempQuiz("hx4AafymSfduHRNw0vlCkL8uYD73", "UTS Sejarah 1", "2021/11/30 10:00:00", "2022/02/02 23:59:59")
+        val kuis3 = TempQuiz("hx4AafymSfduHRNw0vlCkL8uYD73", "Remedial Matematika Wajib 2", "2022/02/02 08:00:00", "2022/02/02 23:59:59")
 
         list.add(kuis1)
         list.add(kuis2)
@@ -89,7 +89,7 @@ class TeacherUncompletedQuizListFragment : Fragment(), TeacherUncompletedListQui
 //        childFragmentManager?.beginTransaction()
     }
 
-    override fun onItemClicked(productModel: Kuis) {
+    override fun onItemClicked(productModel: TempQuiz) {
         (activity as TeacherMainMenuActivity).navigateWithData(kuis = productModel)
     }
 }

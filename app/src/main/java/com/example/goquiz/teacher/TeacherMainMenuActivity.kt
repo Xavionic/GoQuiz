@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.goquiz.R
 import com.example.goquiz.authentication.LoginActivity
-import com.example.goquiz.data.Kuis
+import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherFragmentUncompletedQuiz
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -74,7 +74,7 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun navigateWithData(kuis: Kuis){
+    fun navigateWithData(kuis: TempQuiz){
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.viewPagerTeacher, TeacherUncompletedQuizDetail(kuis))
 //            .addToBackStack("")

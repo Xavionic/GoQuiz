@@ -1,14 +1,7 @@
 package com.example.goquiz.teacher.uncompleted_fragment
 
-import com.example.goquiz.R
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.goquiz.data.Kuis
+import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.teacher.TeacherMainMenuActivity
 
 
@@ -46,7 +39,7 @@ class TeacherQuestionListFragment : Fragment(), TeacherUncompletedListQuizAdapte
 //        rvQuiz.layoutManager = LinearLayoutManager(requireContext())
 //    }
 
-    override fun onItemClicked(productModel: Kuis) {
+    override fun onItemClicked(productModel: TempQuiz) {
         (activity as TeacherMainMenuActivity).navigateWithData(kuis = productModel)
     }
 }
