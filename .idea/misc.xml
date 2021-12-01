@@ -3,10 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/student_rv_running_quiz.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/teacher_item_row_uncompleted_quiz.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/drawable-v24/edittextbackground.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1445" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1445" />
-        <entry key="app/src/main/res/drawable/lonjong.xml" value="0.1445" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
@@ -23,12 +22,9 @@
         <entry key="app/src/main/res/layout/teacher_activity_main_menu.xml" value="0.25" />
         <entry key="app/src/main/res/layout/teacher_create_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_fragment_completed_quiz.xml" value="0.16485507246376813" />
-        <entry key="app/src/main/res/layout/teacher_fragment_question.xml" value="0.16304347826086957" />
         <entry key="app/src/main/res/layout/teacher_fragment_uncompleted_quiz.xml" value="0.16485507246376813" />
-        <entry key="app/src/main/res/layout/teacher_item_row_questions.xml" value="0.16304347826086957" />
         <entry key="app/src/main/res/layout/teacher_item_row_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_item_row_uncompleted_quiz.xml" value="0.16485507246376813" />
-        <entry key="app/src/main/res/layout/teacher_question_detail.xml" value="0.16304347826086957" />
         <entry key="app/src/main/res/layout/teacher_uncompleted_fragment_detail.xml" value="0.16485507246376813" />
       </map>
     </option>

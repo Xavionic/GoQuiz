@@ -10,7 +10,7 @@
         android:id="@+id/Question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1. Are u gay?"
+        android:text="1. Question 1?"
         android:textSize="16sp" />
 
     <RadioGroup
@@ -21,7 +21,7 @@
             android:id="@+id/opt1"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Yes, i am"
+            android:text="Option A"
             android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -29,7 +29,7 @@
             android:id="@+id/opt2"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Yes, i am"
+            android:text="Option B"
             android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -37,14 +37,14 @@
             android:id="@+id/opt3"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Yes, i am"
+            android:text="Option C"
             android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/opt4"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Yes, i am"
+            android:text="Option D"
             android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck" />
 
