@@ -25,6 +25,7 @@
         <entry key="app/src/main/res/layout/teacher_fragment_uncompleted_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_item_row_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_item_row_uncompleted_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/teacher_question_detail.xml" value="0.12158054711246201" />
         <entry key="app/src/main/res/layout/teacher_uncompleted_fragment_detail.xml" value="0.16485507246376813" />
       </map>
     </option>

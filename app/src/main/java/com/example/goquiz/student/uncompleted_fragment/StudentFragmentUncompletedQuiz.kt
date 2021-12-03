@@ -1,4 +1,4 @@
-package com.example.goquiz.student
+package com.example.goquiz.student.uncompleted_fragment
 
 import androidx.fragment.app.Fragment
 import com.example.goquiz.R

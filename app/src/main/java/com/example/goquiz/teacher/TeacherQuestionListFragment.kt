@@ -40,16 +40,21 @@ class TeacherQuestionListFragment : Fragment()
 
         val listQuestion = ArrayList<TempQuestion>()
         val question1 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Berapakah satu ditambah satu dengan asumsi satu bukan bilangan yang dapat ditambah?", ansList)
-        val question2 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Lorem ipsum dolor sit amet", ansList)
-        val question3 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Pertanyaan pertanyaan pertanyaan pertanyaan pertanyaan pertanyaan?", ansList)
+        val question2 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida nunc vitae quam porttitor pellentesque. Aliquam non quam a mi sodales congue sit amet ut ex. Donec blandit nunc eu risus posuere, ut interdum diam feugiat. Praesent dignissim auctor pharetra. Ut id interdum odio, ac venenatis metus. Integer sed accumsan nibh, non consequat elit. Phasellus eget mattis turpis. Curabitur vitae consectetur ipsum, at ornare lacus. Praesent eget libero non quam suscipit consectetur. In iaculis mauris ipsum, vitae ultrices mauris blandit at.", ansList)
+        val question3 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Pertanyaan tiga", ansList)
+        val question4 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Pertanyaan empat", ansList)
+        val question5 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Pertanyaan lima", ansList)
+        val question6 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Pertanyaan enam", ansList)
+        val question7 = TempQuestion("hx4AafymSfduHRNw0vlCkL8uYD73", "Pertanyaan tujuh", ansList)
+
 
         listQuestion.add(question1)
         listQuestion.add(question2)
         listQuestion.add(question3)
-        listQuestion.add(question2)
-        listQuestion.add(question2)
-        listQuestion.add(question2)
-
+        listQuestion.add(question4)
+        listQuestion.add(question5)
+        listQuestion.add(question6)
+        listQuestion.add(question7)
 
         val rvQuestion: RecyclerView = view.findViewById(R.id.rv_questions)
         val listQuestionAdapter = TeacherQuestionListAdapter(listQuestion, this)

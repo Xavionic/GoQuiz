@@ -3,10 +3,11 @@ package com.example.goquiz.teacher
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.R
 import com.example.goquiz.data.TempAnswer
 import com.example.goquiz.data.TempQuestion
+import com.example.goquiz.data.quiz.Answer
+
 
 //class TeacherDetailQuiz(
 //    private val kuis: Kuis
@@ -50,11 +51,12 @@ class TeacherQuestionDetail( val question : TempQuestion = TempQuestion("", "", 
 
         title = "Detail of question"
         desc.text = intent.getStringExtra("QUESTION")
-        one.text = "- ${intent.getStringExtra("ANSWER_LIST0")}"
-        two.text = "- ${intent.getStringExtra("ANSWER_LIST1")}"
-        three.text = "- ${intent.getStringExtra("ANSWER_LIST2")}"
-        four.text = "- ${intent.getStringExtra("ANSWER_LIST3")}"
+        val answersList = intent.getSerializableExtra("ANSWER_LIST") as ArrayList<TempAnswer>
 
+        one.text = answersList[0].answer
+        two.text = answersList[1].answer
+        three.text = answersList[2].answer
+        four.text = answersList[3].answer
 
 
     }

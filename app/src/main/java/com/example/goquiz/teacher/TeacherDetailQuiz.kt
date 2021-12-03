@@ -71,11 +71,7 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
         var intent = Intent(applicationContext, TeacherQuestionDetail(question)::class.java)
         intent.putExtra("KUIS_ID", question.quiz_id);
         intent.putExtra("QUESTION", question.question);
-//        intent.putExtra("ANSWER_LIST", question.answers);
-        intent.putExtra("ANSWER_LIST0", question.answers[0].answer);
-        intent.putExtra("ANSWER_LIST1", question.answers[1].answer);
-        intent.putExtra("ANSWER_LIST2", question.answers[2].answer);
-        intent.putExtra("ANSWER_LIST3", question.answers[3].answer);
+        intent.putExtra("ANSWER_LIST", question.answers);
 
         startActivity(intent)
     }
