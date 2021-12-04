@@ -1,8 +1,10 @@
 package com.example.goquiz.teacher.uncompleted_fragment
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import com.example.goquiz.R
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +25,6 @@ class StudentUncompletedQuizListFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var dbref: DatabaseReference
-    private lateinit var dbuser: DatabaseReference
     private lateinit var quizRecyclerView: RecyclerView
     private lateinit var quizArrayList: ArrayList<TempQuiz>
     private lateinit var teacherNameList: ArrayList<String>
@@ -51,29 +52,23 @@ class StudentUncompletedQuizListFragment : Fragment() {
     fun showQuiz() {
 
         dbref = FirebaseDatabase.getInstance().getReference()
-//        dbref = FirebaseDatabase.getInstance().getReference("/tmp_quizess")
-//        dbuser = FirebaseDatabase.getInstance().getReference("/users")
-
         dbref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (quiz in snapshot.child("/tmp_quizess").children){
-                    val quizData = quiz.getValue(TempQuiz::class.java)
-                    quizArrayList.add(quizData!!)
-                    var teacherName = "asdasd"
-//                    for (user in snapshot.child("/users").children){
-//                        if (quizData.teacher_uid == user.key){
-//                            teacherName = user.child(quizData.teacher_uid).child("name").value.toString()
-//                        }
-//                    }
-                    teacherName = snapshot.child("/users").child("${quizData.teacher_uid}").child("name").value.toString()
-//                    var teacherName = "Aasdasd"
-                    teacherNameList.add(teacherName)
+
+                    for (participan in quiz.child("/participants").children){
+                        if (participan.exists()){
+                            if (participan.key.toString() == auth.uid.toString()){
+                                val quizData = quiz.getValue(TempQuiz::class.java)
+                                quizArrayList.add(quizData!!)
+                                var teacherName = snapshot.child("/users").child(quizData.teacher_uid).child("name").value.toString()
+                                teacherNameList.add(teacherName)
+                            }
+                        }
+
+                    }
                 }
-//                }
                 quizRecyclerView.adapter = StudentUncompletedListQuizAdapter(quizArrayList, teacherNameList)
-
-
-
             }
 
             override fun onCancelled(error: DatabaseError) {

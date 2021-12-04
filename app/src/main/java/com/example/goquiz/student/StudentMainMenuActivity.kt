@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.goquiz.R
 import com.example.goquiz.authentication.LoginActivity
+import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.student.uncompleted_fragment.StudentFragmentUncompletedQuiz
+import com.example.goquiz.student.uncompleted_fragment.StudentUncompletedListQuizAdapter
 import com.example.goquiz.teacher.uncompleted_fragment.StudentUncompletedQuizListFragment
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment2
 import com.google.firebase.auth.FirebaseAuth
@@ -39,10 +42,6 @@ class StudentMainMenuActivity : AppCompatActivity() {
             .add(R.id.viewPagerStudent, StudentUncompletedQuizListFragment())
             .addToBackStack("")
             .commit()
-
-        findViewById<Button>(R.id.btn_enroll).setOnClickListener{
-            Toast.makeText(this, "Quiz belum tersedia", Toast.LENGTH_SHORT).show()
-        }
 
         findViewById<Button>(R.id.buttonUncompletedStudent).setOnClickListener{
 //            supportFragmentManager.beginTransaction().apply {
@@ -90,7 +89,47 @@ class StudentMainMenuActivity : AppCompatActivity() {
 
     fun enroll(view: View) {
 //        ETenrollKey.text = "Enter Quiz e-Key Here"
-        ETenrollKey.setText("")
-        Toast.makeText(this, "Maaf fitur belum tersedia", Toast.LENGTH_SHORT).show()
+        var enroll : EditText = ETenrollKey
+        if (ETenrollKey.text.toString() == ""){
+            Toast.makeText(this, "Fill the form correctly!", Toast.LENGTH_SHORT).show()
+        }else{
+            createQuiz(ETenrollKey.text.toString())
+        }
+
     }
+
+    fun createQuiz(key: String){
+        dbref = FirebaseDatabase.getInstance().getReference()
+        val addValueEventListener =
+            dbref.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var exist : Boolean = false
+                    for (quiz in snapshot.child("/tmp_quizess").children){
+                        if (quiz.key.toString() == key){
+                            exist = true
+                            break
+                        }
+                    }
+
+                    if (exist){
+                        val dummy = mapOf<String, String>("dummy" to "")
+                        dbref.child("/tmp_quizess").child(key).child("/participants").child("${auth.uid}").setValue(dummy)
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.viewPagerStudent, StudentUncompletedQuizListFragment())
+                            .addToBackStack("")
+                            .commit()
+                        Toast.makeText(applicationContext, "Successfully joining quiz", Toast.LENGTH_LONG).show()
+
+                    }else{
+                        Toast.makeText(applicationContext, "Wrong enrollment key!", Toast.LENGTH_SHORT).show()
+                    }
+                    ETenrollKey.setText("")
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(applicationContext, error.message, Toast.LENGTH_LONG).show()
+                }
+            })
+    }
+
 }
