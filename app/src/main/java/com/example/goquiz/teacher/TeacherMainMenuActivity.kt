@@ -13,6 +13,7 @@ import com.example.goquiz.authentication.LoginActivity
 import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherFragmentUncompletedQuiz
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment
+import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -31,14 +32,14 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         title()
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
+            .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
             .addToBackStack("")
             .commit()
 
 
         findViewById<Button>(R.id.buttonUncompleted).setOnClickListener{
             supportFragmentManager.beginTransaction()
-                .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
+                .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
                 .addToBackStack("")
                 .commit()
         }
