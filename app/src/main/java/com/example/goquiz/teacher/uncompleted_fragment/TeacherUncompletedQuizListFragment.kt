@@ -25,6 +25,9 @@ class TeacherUncompletedQuizListFragment : Fragment()
 
     private lateinit var  auth: FirebaseAuth
     private lateinit var dbref: DatabaseReference
+    private lateinit var quizRecyclerView : RecyclerView
+    private lateinit var quizArrayList: ArrayList<TempQuiz>
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,8 +37,11 @@ class TeacherUncompletedQuizListFragment : Fragment()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = FirebaseAuth.getInstance()
+        quizRecyclerView = rv_quizes
+        quizRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        quizArrayList = arrayListOf<TempQuiz>()
         showQuiz()
-
 
 //        val list = ArrayList<TempQuiz>()
 //        val kuis1 = TempQuiz("hx4AafymSfduHRNw0vlCkL8uYD73", "Kuis Matematika Peminatan 1", "2022/02/02 08:00:00", "2022/02/03 23:59:59")
@@ -68,35 +74,28 @@ class TeacherUncompletedQuizListFragment : Fragment()
 
     fun showQuiz(){
         dbref = FirebaseDatabase.getInstance().getReference("/tmp_quizess")
-        val addValueEventListener =
-            dbref.addListenerForSingleValueEvent(object : ValueEventListener {
-                val listQuiz = ArrayList<TempQuiz>()
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()){
-                        for (quiz in snapshot.children){
-                            val teacher_uid = quiz.child("teacher_uid").value.toString()
-                            val description = quiz.child("description").value.toString()
-                            val start_time = quiz.child("start_time").value.toString()
-                            val end_time = quiz.child("end_time").value.toString()
 
-                            val quiz = TempQuiz(teacher_uid, description, start_time, end_time)
-                            listQuiz.add(quiz)
+        dbref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (quizSnapshot in snapshot.children) {
+                        if (quizSnapshot.child("teacher_uid").value == auth.uid){
+                            val quiz = quizSnapshot.getValue(TempQuiz::class.java)
+                            quizArrayList.add(quiz!!)
+                        }else{
+                            continue
                         }
                     }
 
-                    val rvQuiz: RecyclerView = rv_quizes
-//                    val listQuizAdapter = TeacherUncompletedListQuizAdapter(listQuiz, this)
-//                    rvQuiz.adapter = listQuizAdapter
-//                    rvQuiz.layoutManager = LinearLayoutManager(requireContext())
-//                    childFragmentManager?.beginTransaction()
-
-
+                    quizRecyclerView.adapter = TeacherUncompletedListQuizAdapter(quizArrayList, this@TeacherUncompletedQuizListFragment)
                 }
+            }
 
-                override fun onCancelled(error: DatabaseError) {
-                    print("Error")
-                }
-            })
+            override fun onCancelled(error: DatabaseError) {
+                print("Ada error di data quiz")
+            }
+
+        })
     }
 
     override fun onItemClicked(productModel: TempQuiz) {

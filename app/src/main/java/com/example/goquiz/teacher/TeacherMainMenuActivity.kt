@@ -32,14 +32,16 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         title()
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
+            .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
+//            .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
             .addToBackStack("")
             .commit()
 
 
         findViewById<Button>(R.id.buttonUncompleted).setOnClickListener{
             supportFragmentManager.beginTransaction()
-                .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
+                .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
+//                .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
                 .addToBackStack("")
                 .commit()
         }

@@ -25,7 +25,7 @@ class StudentUncompletedListQuizAdapter(private val quizList : ArrayList<TempQui
         holder.tvDescriptionQuiz.text = description
         holder.tvStartTime.text = "Start $start_time"
         holder.tvEndTime.text =   "End   $end_time"
-        holder.tvTeacherName.text = "Quiz oleh ${teacherNameList[position]}"
+        holder.tvTeacherName.text = "Quiz by ${teacherNameList[position]}"
 
         holder.itemView.setOnClickListener {
             //@TODO how to start activity inside setOnClickListener
