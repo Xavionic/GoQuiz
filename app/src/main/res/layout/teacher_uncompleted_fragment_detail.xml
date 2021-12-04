@@ -63,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_weight="1"
+            android:onClick="delete"
             android:text="DELETE"
             app:backgroundTint="#F44336" />
     </LinearLayout>

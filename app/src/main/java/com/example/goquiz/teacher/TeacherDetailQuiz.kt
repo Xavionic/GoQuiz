@@ -1,13 +1,19 @@
 package com.example.goquiz.teacher
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.R
 import com.example.goquiz.data.TempQuestion
-import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment
+import com.example.goquiz.data.TempQuiz
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
 
 //class TeacherDetailQuiz(
 //    private val kuis: Kuis
@@ -31,7 +37,7 @@ import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizLis
 //}
 
 class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN", "-", "-")) : AppCompatActivity() {
-
+    private lateinit var dbref : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.teacher_uncompleted_fragment_detail)
@@ -63,5 +69,21 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
         intent.putExtra("ANSWER_LIST", question.answers);
 
         startActivity(intent)
+    }
+
+    fun delete(view: View){
+        AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle("Delete Quiz Confirmation").setMessage("Are you sure you want to delete this quiz?")
+            .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                finish()
+
+                dbref = FirebaseDatabase.getInstance().getReference("/tmp_quizess")
+                dbref.child(intent.getStringExtra("ID_KUIS").toString()).removeValue()
+
+                Toast.makeText(applicationContext, "Quiz deleted", Toast.LENGTH_LONG).show()
+                var intent = Intent(applicationContext, TeacherMainMenuActivity::class.java)
+                startActivity(intent)
+                finish()
+            }).setNegativeButton("No", null).show()
     }
 }
