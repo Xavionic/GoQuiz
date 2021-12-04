@@ -13,7 +13,6 @@ import com.example.goquiz.authentication.LoginActivity
 import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherFragmentUncompletedQuiz
 import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment
-import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -33,7 +32,6 @@ class TeacherMainMenuActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
-//            .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
             .addToBackStack("")
             .commit()
 
@@ -41,7 +39,6 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         findViewById<Button>(R.id.buttonUncompleted).setOnClickListener{
             supportFragmentManager.beginTransaction()
                 .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment())
-//                .add(R.id.viewPagerTeacher,TeacherUncompletedQuizListFragment2())
                 .addToBackStack("")
                 .commit()
         }
@@ -77,7 +74,7 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun navigateWithData(kuis: TempQuiz){
+    fun navigateWithData(kuis: TempQuiz, quizID : String){
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.viewPagerTeacher, TeacherUncompletedQuizDetail(kuis))
 //            .addToBackStack("")
@@ -88,6 +85,7 @@ class TeacherMainMenuActivity : AppCompatActivity() {
 
         var intent = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
         intent.putExtra("UID_KUIS", kuis.teacher_uid);
+        intent.putExtra("ID_KUIS", quizID);
         intent.putExtra("DESKRIPSI_KUIS", kuis.description);
         intent.putExtra("START_TIME_KUIS", kuis.start_time);
         intent.putExtra("END_TIME_KUIS", kuis.end_time);

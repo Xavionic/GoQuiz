@@ -11,7 +11,8 @@ import com.example.goquiz.data.TempQuiz
 
 class TeacherUncompletedListQuizAdapter(
     private val listQuiz:ArrayList<TempQuiz>
-    , private val onItemClickListener: OnItemClickListener
+    , private val onItemClickListener: OnItemClickListener,
+    private val listIDQuiz: ArrayList<String>
     ):
     RecyclerView.Adapter<TeacherUncompletedListQuizAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
@@ -21,13 +22,14 @@ class TeacherUncompletedListQuizAdapter(
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val (teacher_uid, description, start_time, end_time) = listQuiz[position]
         holder.tvDescriptionQuiz.text = description
+        holder.tvQuizID.text = "Enrollment key : ${listIDQuiz[position]}"
+
         holder.tvStartTime.text = "Start $start_time"
         holder.tvEndTime.text =   "End   $end_time"
 
         holder.itemView.setOnClickListener {
 //            Toast.makeText(holder.itemView.context, "Kamu memilih " + listQuiz[holder.adapterPosition].description, Toast.LENGTH_SHORT).show()
-
-            onItemClickListener.onItemClicked(listQuiz[position])
+            onItemClickListener.onItemClicked(listQuiz[position], listIDQuiz[position])
 
         }
     }
@@ -37,12 +39,13 @@ class TeacherUncompletedListQuizAdapter(
 
     inner class ListViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
         var tvDescriptionQuiz: TextView = itemView.findViewById(R.id.tv_description_quiz)
+        var tvQuizID:TextView = itemView.findViewById(R.id.tv_quiz_id)
         var tvStartTime: TextView = itemView.findViewById(R.id.tv_start_time)
         var tvEndTime: TextView = itemView.findViewById(R.id.tv_end_time)
     }
 
     interface OnItemClickListener{
-        fun onItemClicked(productModel:TempQuiz)
+        fun onItemClicked(productModel:TempQuiz, quizID: String)
     }
 }
 

@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goquiz.R
 import com.example.goquiz.data.TempQuiz
-import com.example.goquiz.teacher.TeacherDetailQuiz2
-import java.security.AccessController.getContext
 
 
 class StudentUncompletedListQuizAdapter(private val quizList : ArrayList<TempQuiz>, private val teacherNameList : ArrayList<String>): RecyclerView.Adapter<StudentUncompletedListQuizAdapter.ListViewHolder>() {
@@ -29,10 +26,10 @@ class StudentUncompletedListQuizAdapter(private val quizList : ArrayList<TempQui
 
         holder.itemView.setOnClickListener {
             //@TODO how to start activity inside setOnClickListener
-            var intent = Intent(holder.itemView.context, TeacherDetailQuiz2::class.java)
-            intent.putExtra("QUIZ_DESCRIPTION", description)
-            intent.putExtra("QUIZ_START_TIME", start_time)
-            intent.putExtra("QUIZ_END_TIME", end_time)
+//            var intent = Intent(holder.itemView.context, TeacherDetailQuiz2::class.java)
+//            intent.putExtra("QUIZ_DESCRIPTION", description)
+//            intent.putExtra("QUIZ_START_TIME", start_time)
+//            intent.putExtra("QUIZ_END_TIME", end_time)
             Toast.makeText(holder.itemView.context, "Kamu ${teacherNameList[position]} memilih " + quizList[holder.adapterPosition].description, Toast.LENGTH_SHORT).show()
 
         }

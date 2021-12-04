@@ -27,6 +27,7 @@ class TeacherUncompletedQuizListFragment : Fragment()
     private lateinit var dbref: DatabaseReference
     private lateinit var quizRecyclerView : RecyclerView
     private lateinit var quizArrayList: ArrayList<TempQuiz>
+    private lateinit var quizID: ArrayList<String>
 
 
 
@@ -41,6 +42,7 @@ class TeacherUncompletedQuizListFragment : Fragment()
         quizRecyclerView = rv_quizes
         quizRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         quizArrayList = arrayListOf<TempQuiz>()
+        quizID = arrayListOf<String>()
         showQuiz()
 
 //        val list = ArrayList<TempQuiz>()
@@ -81,13 +83,14 @@ class TeacherUncompletedQuizListFragment : Fragment()
                     for (quizSnapshot in snapshot.children) {
                         if (quizSnapshot.child("teacher_uid").value == auth.uid){
                             val quiz = quizSnapshot.getValue(TempQuiz::class.java)
+                            quizID.add(quizSnapshot.key.toString())
                             quizArrayList.add(quiz!!)
                         }else{
                             continue
                         }
                     }
 
-                    quizRecyclerView.adapter = TeacherUncompletedListQuizAdapter(quizArrayList, this@TeacherUncompletedQuizListFragment)
+                    quizRecyclerView.adapter = TeacherUncompletedListQuizAdapter(quizArrayList, this@TeacherUncompletedQuizListFragment, quizID)
                 }
             }
 
@@ -98,7 +101,7 @@ class TeacherUncompletedQuizListFragment : Fragment()
         })
     }
 
-    override fun onItemClicked(productModel: TempQuiz) {
-        (activity as TeacherMainMenuActivity).navigateWithData(kuis = productModel)
+    override fun onItemClicked(productModel: TempQuiz, quizID: String) {
+        (activity as TeacherMainMenuActivity).navigateWithData(kuis = productModel, quizID = quizID)
     }
 }

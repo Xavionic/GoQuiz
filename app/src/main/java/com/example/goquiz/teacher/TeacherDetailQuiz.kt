@@ -37,14 +37,9 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
         setContentView(R.layout.teacher_uncompleted_fragment_detail)
 
         val desc = findViewById<TextView>(R.id.tvQuizDescription)
+        val quiz_id = findViewById<TextView>(R.id.tvQuizID)
         val start = findViewById<TextView>(R.id.tvQuizStartTime)
         val end = findViewById<TextView>(R.id.tvQuizEndTime)
-
-//        var fragQuest = TeacherFragmentQuestion()
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(R.id.viewPagerQuestion, fragQuest)
-//            commit()
-//        }
 
         supportFragmentManager.beginTransaction()
             .add(R.id.viewPagerQuestion, TeacherQuestionListFragment())
@@ -53,6 +48,7 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
 
         title = "Detail of ${intent.getStringExtra("DESKRIPSI_KUIS")}"
         desc.text = intent.getStringExtra("DESKRIPSI_KUIS")
+        quiz_id.text = "Enrollment key: ${intent.getStringExtra("ID_KUIS")}"
         start.text = "Start ${intent.getStringExtra("START_TIME_KUIS")}"
         end.text = "End ${intent.getStringExtra("END_TIME_KUIS")}"
 
@@ -60,13 +56,6 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
     }
 
     fun navigateWithData(question: TempQuestion){
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.viewPagerTeacher, TeacherUncompletedQuizDetail(kuis))
-//            .addToBackStack("")
-//            .commit()
-//
-//        var intent = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
-//        startActivity(intent)
 
         var intent = Intent(applicationContext, TeacherQuestionDetail(question)::class.java)
         intent.putExtra("KUIS_ID", question.quiz_id);

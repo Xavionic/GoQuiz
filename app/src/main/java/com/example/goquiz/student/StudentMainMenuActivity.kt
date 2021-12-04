@@ -11,11 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.goquiz.R
 import com.example.goquiz.authentication.LoginActivity
-import com.example.goquiz.data.TempQuiz
 import com.example.goquiz.student.uncompleted_fragment.StudentFragmentUncompletedQuiz
-import com.example.goquiz.student.uncompleted_fragment.StudentUncompletedListQuizAdapter
 import com.example.goquiz.teacher.uncompleted_fragment.StudentUncompletedQuizListFragment
-import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.student_activity_main_menu.*
