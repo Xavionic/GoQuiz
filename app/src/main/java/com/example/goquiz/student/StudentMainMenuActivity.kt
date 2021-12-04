@@ -11,6 +11,8 @@ import android.widget.Toast
 import com.example.goquiz.R
 import com.example.goquiz.authentication.LoginActivity
 import com.example.goquiz.student.uncompleted_fragment.StudentFragmentUncompletedQuiz
+import com.example.goquiz.teacher.uncompleted_fragment.StudentUncompletedQuizListFragment
+import com.example.goquiz.teacher.uncompleted_fragment.TeacherUncompletedQuizListFragment2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.student_activity_main_menu.*
@@ -28,20 +30,29 @@ class StudentMainMenuActivity : AppCompatActivity() {
 
         title()
 
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.viewPagerStudent, fragUnc)
-            commit()
-        }
+//        supportFragmentManager.beginTransaction().apply {
+//            replace(R.id.viewPagerStudent, fragUnc)
+//            commit()
+//        }
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.viewPagerStudent, StudentUncompletedQuizListFragment())
+            .addToBackStack("")
+            .commit()
 
         findViewById<Button>(R.id.btn_enroll).setOnClickListener{
             Toast.makeText(this, "Quiz belum tersedia", Toast.LENGTH_SHORT).show()
         }
 
         findViewById<Button>(R.id.buttonUncompletedStudent).setOnClickListener{
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.viewPagerStudent, fragUnc)
-                commit()
-            }
+//            supportFragmentManager.beginTransaction().apply {
+//                replace(R.id.viewPagerStudent, fragUnc)
+//                commit()
+//            }
+            supportFragmentManager.beginTransaction()
+                .add(R.id.viewPagerStudent, StudentUncompletedQuizListFragment())
+                .addToBackStack("")
+                .commit()
         }
 
         findViewById<Button>(R.id.buttonCompletedStudent).setOnClickListener{

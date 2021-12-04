@@ -15,7 +15,10 @@
         <entry key="app/src/main/res/layout/rv_completed_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/rv_overview_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/student_activity_main_menu.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/student_activity_overview_quiz.xml" value="0.14764492753623187" />
+        <entry key="app/src/main/res/layout/student_activity_running_quiz.xml" value="0.14764492753623187" />
         <entry key="app/src/main/res/layout/student_fragment_uncompleted_quiz.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/student_item_row_uncompleted_quiz.xml" value="0.14764492753623187" />
         <entry key="app/src/main/res/layout/student_rv_overview_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/student_rv_running_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/student_rv_uncompleted_quiz.xml" value="0.16485507246376813" />
