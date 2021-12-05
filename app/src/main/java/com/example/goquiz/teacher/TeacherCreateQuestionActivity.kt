@@ -55,39 +55,33 @@ class TeacherCreateQuestionActivity() : AppCompatActivity() {
                 "answer4" to editTextAnswer4.text.toString(),
                 "true_answer" to true_answer
             )
-
-            Log.e("asd", "${questionData.toString()} dan ${intent.getStringExtra("ID_KUIS")}")
-
-
-//            dbref = FirebaseDatabase.getInstance().getReference("/tmp_quizess/${intent.getStringExtra("ID_KUIS")}/questions")
             dbref = FirebaseDatabase.getInstance().getReference("/tmp_quizess")
 
             dbref.addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
-//                    var buffer : String = "${intent.getStringExtra("ID_KUIS")}0000"
-                    var buffer = "666"
+
+                    var buffer : String = "${intent.getStringExtra("ID_KUIS")}0000"
                     if (snapshot.exists()){
                         for (question in snapshot.child(intent.getStringExtra("ID_KUIS").toString()).child("questions").children){
                             buffer = question.key.toString()
                             Log.e("asd", "${buffer}")
                         }
                     }
-                    Log.e("buffer", "${buffer} dan ${intent.getStringExtra("ID_KUIS")}")
 
-                    var question_id : Int = buffer.toInt() + 1
-                    Log.e("question_id", "${question_id} dan ${intent.getStringExtra("ID_KUIS")}")
+                    var question_id : Long = buffer.toLong() + 1
 
                     val quest = dbref.child(intent.getStringExtra("ID_KUIS").toString()).child("questions").child(question_id.toString())
                     quest.setValue(questionData)
 
 
                     Toast.makeText(applicationContext, "Successfully adding question!", Toast.LENGTH_LONG).show()
-//                    var intent2 = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
-//                    intent2.putExtra("DESKRIPSI_KUIS", intent.getStringExtra("DESKRIPSI_KUIS").toString())
-//                    intent2.putExtra("ID_KUIS", intent.getStringExtra("ID_KUIS").toString())
-//                    intent2.putExtra("START_TIME_KUIS", intent.getStringExtra("START_TIME_KUIS").toString())
-//                    intent2.putExtra("END_TIME_KUIS", intent.getStringExtra("END_TIME_KUIS").toString())
-                    var intent2 = Intent(applicationContext, TeacherMainMenuActivity::class.java)
+                    var intent2 = Intent(applicationContext, TeacherDetailQuiz()::class.java)
+//                    intent2.putExtra("UID_KUIS", kuis.teacher_uid);
+                    intent2.putExtra("ID_KUIS", intent.getStringExtra("ID_KUIS").toString())
+                    intent2.putExtra("DESKRIPSI_KUIS", intent.getStringExtra("DESKRIPSI_KUIS").toString())
+                    intent2.putExtra("START_TIME_KUIS", intent.getStringExtra("START_TIME_KUIS").toString())
+                    intent2.putExtra("END_TIME_KUIS", intent.getStringExtra("END_TIME_KUIS").toString())
+//                    var intent2 = Intent(applicationContext, TeacherMainMenuActivity::class.java)
                     startActivity(intent2)
                     finish()
                 }

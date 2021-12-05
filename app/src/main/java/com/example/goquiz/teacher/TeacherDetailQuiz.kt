@@ -47,10 +47,7 @@ class TeacherDetailQuiz() : AppCompatActivity() {
         val start = findViewById<TextView>(R.id.tvQuizStartTime)
         val end = findViewById<TextView>(R.id.tvQuizEndTime)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.viewPagerQuestion, TeacherQuestionListFragment(intent.getStringExtra("ID_KUIS").toString()))
-            .addToBackStack("")
-            .commit()
+        fragmentQuestion()
 
         title = "Detail of ${intent.getStringExtra("DESKRIPSI_KUIS")}"
         desc.text = intent.getStringExtra("DESKRIPSI_KUIS")
@@ -59,6 +56,13 @@ class TeacherDetailQuiz() : AppCompatActivity() {
         end.text = "End ${intent.getStringExtra("END_TIME_KUIS")}"
 
 
+    }
+
+    fun fragmentQuestion(){
+        supportFragmentManager.beginTransaction()
+            .add(R.id.viewPagerQuestion, TeacherQuestionListFragment(intent.getStringExtra("ID_KUIS").toString()))
+            .addToBackStack("")
+            .commit()
     }
 
     fun navigateWithData(question: TempQuestion){

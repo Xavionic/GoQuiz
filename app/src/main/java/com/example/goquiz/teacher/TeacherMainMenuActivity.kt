@@ -89,7 +89,6 @@ class TeacherMainMenuActivity : AppCompatActivity() {
         intent.putExtra("DESKRIPSI_KUIS", kuis.description);
         intent.putExtra("START_TIME_KUIS", kuis.start_time);
         intent.putExtra("END_TIME_KUIS", kuis.end_time);
-
         startActivity(intent)
     }
 
