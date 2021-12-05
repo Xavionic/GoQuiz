@@ -83,7 +83,7 @@ class TeacherMainMenuActivity : AppCompatActivity() {
 //        var intent = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
 //        startActivity(intent)
 
-        var intent = Intent(applicationContext, TeacherDetailQuiz(kuis)::class.java)
+        var intent = Intent(applicationContext, TeacherDetailQuiz()::class.java)
         intent.putExtra("UID_KUIS", kuis.teacher_uid);
         intent.putExtra("ID_KUIS", quizID);
         intent.putExtra("DESKRIPSI_KUIS", kuis.description);

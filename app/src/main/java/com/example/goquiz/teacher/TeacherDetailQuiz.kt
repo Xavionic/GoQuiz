@@ -36,7 +36,7 @@ import com.google.firebase.database.FirebaseDatabase
 //    }
 //}
 
-class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN", "-", "-")) : AppCompatActivity() {
+class TeacherDetailQuiz() : AppCompatActivity() {
     private lateinit var dbref : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,5 +90,17 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
                 startActivity(intent)
                 finish()
             }).setNegativeButton("No", null).show()
+    }
+
+    fun addQuestion(view: View){
+//        var intent2 = Intent(applicationContext, TeacherCreateQuestionActivity::class.java)
+//        intent2.putExtra("KUIS_ID", intent.getStringExtra("ID_KUIS"))
+        var intent2 = Intent(applicationContext, TeacherCreateQuestionActivity()::class.java)
+        intent2.putExtra("DESKRIPSI_KUIS", intent.getStringExtra("DESKRIPSI_KUIS").toString())
+        intent2.putExtra("ID_KUIS", intent.getStringExtra("ID_KUIS").toString())
+        intent2.putExtra("START_TIME_KUIS", intent.getStringExtra("START_TIME_KUIS").toString())
+        intent2.putExtra("END_TIME_KUIS", intent.getStringExtra("END_TIME_KUIS").toString())
+
+        startActivity(intent2)
     }
 }

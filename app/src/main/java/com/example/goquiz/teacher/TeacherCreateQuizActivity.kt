@@ -47,7 +47,7 @@ class TeacherCreateQuizActivity : AppCompatActivity(){
 
             dbref.addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var buffer = ""
+                    var buffer = "10000000"
 
                     for (quiz in snapshot.children){
                         buffer = quiz.key.toString()
@@ -58,7 +58,7 @@ class TeacherCreateQuizActivity : AppCompatActivity(){
                     val quiz = dbref.child(quiz_id.toString())
                     quiz.setValue(quizData)
 
-                    Toast.makeText(applicationContext, "Berhasil membuat Quiz!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Successfully create quiz!", Toast.LENGTH_LONG).show()
                     val intent= Intent(applicationContext, TeacherMainMenuActivity::class.java)
                     startActivity(intent)
                     finish()
