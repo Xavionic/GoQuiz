@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/student_rv_running_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/student_rv_uncompleted_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_activity_main_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/teacher_create_question.xml" value="0.1125" />
         <entry key="app/src/main/res/layout/teacher_create_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_fragment_completed_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_fragment_uncompleted_quiz.xml" value="0.16485507246376813" />

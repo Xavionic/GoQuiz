@@ -6,7 +6,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class TempQuestion(
-    var quiz_id: String = "",
+//    var quiz_id: String = "",
     var question : String = "",
-    var answers : ArrayList<TempAnswer>
+    var answer1: String = "",
+    var answer2: String = "",
+    var answer3: String = "",
+    var answer4: String = "",
+    var true_answer : String = "answer1"
+//    var answers : ArrayList<TempAnswer>
 ): Parcelable

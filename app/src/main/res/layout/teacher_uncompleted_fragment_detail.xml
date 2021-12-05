@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginHorizontal="16dp"
-            android:text="UPDATE" />
+            android:text="ADD QUESTION" />
 
         <Button
             android:id="@+id/btnDeleteQuiz"
@@ -64,7 +64,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_weight="1"
             android:onClick="delete"
-            android:text="DELETE"
+            android:text="DELETE QUIZ"
             app:backgroundTint="#F44336" />
     </LinearLayout>
 

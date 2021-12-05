@@ -30,7 +30,7 @@ import com.example.goquiz.data.quiz.Answer
 //    }
 //}
 
-class TeacherQuestionDetail( val question : TempQuestion = TempQuestion("", "", ArrayList<TempAnswer>())) : AppCompatActivity() {
+class TeacherQuestionDetail( val question : TempQuestion = TempQuestion()) : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +51,12 @@ class TeacherQuestionDetail( val question : TempQuestion = TempQuestion("", "", 
 
         title = "Detail of question"
         desc.text = intent.getStringExtra("QUESTION")
-        val answersList = intent.getSerializableExtra("ANSWER_LIST") as ArrayList<TempAnswer>
+//        val answersList = intent.getSerializableExtra("ANSWER_LIST") as ArrayList<TempAnswer>
 
-        one.text = answersList[0].answer
-        two.text = answersList[1].answer
-        three.text = answersList[2].answer
-        four.text = answersList[3].answer
+        one.text = intent.getStringExtra("ANSWER1")
+        two.text = intent.getStringExtra("ANSWER2")
+        three.text = intent.getStringExtra("ANSWER3")
+        four.text = intent.getStringExtra("ANSWER4")
 
 
     }

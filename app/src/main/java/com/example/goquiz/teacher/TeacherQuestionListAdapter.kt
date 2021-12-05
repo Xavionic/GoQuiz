@@ -19,9 +19,9 @@ class TeacherQuestionListAdapter(
         return ListViewHolder(view)
     }
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (quiz_id, question, answers) = listQuestion[position]
+//        val (question, answer1) = listQuestion[position]
 //        holder.tvDescriptionQuiz.text = quiz_id
-        holder.tvQuestion.text = question
+        holder.tvQuestion.text = listQuestion[position].question
 //        holder.tvEndTime.text =  answers[0].toString()
 
         holder.itemView.setOnClickListener {

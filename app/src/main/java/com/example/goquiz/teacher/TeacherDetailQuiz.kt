@@ -48,7 +48,7 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
         val end = findViewById<TextView>(R.id.tvQuizEndTime)
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.viewPagerQuestion, TeacherQuestionListFragment())
+            .add(R.id.viewPagerQuestion, TeacherQuestionListFragment(intent.getStringExtra("ID_KUIS").toString()))
             .addToBackStack("")
             .commit()
 
@@ -64,9 +64,14 @@ class TeacherDetailQuiz( val kuis: TempQuiz = TempQuiz("-", "TERJADI KESALAHAN",
     fun navigateWithData(question: TempQuestion){
 
         var intent = Intent(applicationContext, TeacherQuestionDetail(question)::class.java)
-        intent.putExtra("KUIS_ID", question.quiz_id);
+        intent.putExtra("KUIS_ID", intent.getStringExtra("ID_KUIS"));
         intent.putExtra("QUESTION", question.question);
-        intent.putExtra("ANSWER_LIST", question.answers);
+        intent.putExtra("ANSWER1", question.answer1);
+        intent.putExtra("ANSWER2", question.answer2);
+        intent.putExtra("ANSWER3", question.answer3);
+        intent.putExtra("ANSWER4", question.answer4);
+        intent.putExtra("ANSWERTRUE", question.true_answer);
+
 
         startActivity(intent)
     }
