@@ -1,12 +1,12 @@
 # GoQuiz
 Online Quiz Platform for Android
 
-## User Role
-- Firebase Authentication
+## Firebase Authentication
 - Select Role
 
 <img src="https://github.com/sabililhaq/GoQuiz/blob/master/app/src/main/res/drawable/register.png" width="200">
 
+## Firebase Realtime Database
 
 ## Teacher Features
 
