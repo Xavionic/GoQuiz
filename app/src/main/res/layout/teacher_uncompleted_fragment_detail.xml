@@ -74,7 +74,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Question lists:" />
+        android:text="Question lists:"
+        android:textSize="25sp"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/viewPagerQuestion"

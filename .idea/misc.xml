@@ -5,6 +5,17 @@
       <map>
         <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/student_rv_running_quiz.xml" value="0.20416666666666666" />
         <entry key="..\:/Android PSI/GoQuiz/app/src/main/res/layout/teacher_item_row_uncompleted_quiz.xml" value="0.20416666666666666" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/activity_register.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_activity_main_menu.xml" value="0.22" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_create_question.xml" value="0.22" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_create_quiz.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_fragment_completed_quiz.xml" value="0.11458333333333333" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_fragment_question.xml" value="0.14356884057971014" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_item_row_questions.xml" value="0.14356884057971014" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_item_row_uncompleted_quiz.xml" value="0.14356884057971014" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_question_detail.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dev Folder/GoQuiz/app/src/main/res/layout/teacher_uncompleted_fragment_detail.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/drawable-v24/edittextbackground.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -15,21 +26,16 @@
         <entry key="app/src/main/res/layout/rv_completed_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/rv_overview_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/student_activity_main_menu.xml" value="0.16485507246376813" />
-        <entry key="app/src/main/res/layout/student_activity_overview_quiz.xml" value="0.14764492753623187" />
-        <entry key="app/src/main/res/layout/student_activity_running_quiz.xml" value="0.14764492753623187" />
         <entry key="app/src/main/res/layout/student_fragment_uncompleted_quiz.xml" value="0.16485507246376813" />
-        <entry key="app/src/main/res/layout/student_item_row_uncompleted_quiz.xml" value="0.14764492753623187" />
         <entry key="app/src/main/res/layout/student_rv_overview_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/student_rv_running_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/student_rv_uncompleted_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_activity_main_menu.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/teacher_create_question.xml" value="0.1125" />
         <entry key="app/src/main/res/layout/teacher_create_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_fragment_completed_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_fragment_uncompleted_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_item_row_quiz.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/teacher_item_row_uncompleted_quiz.xml" value="0.16485507246376813" />
-        <entry key="app/src/main/res/layout/teacher_question_detail.xml" value="0.12158054711246201" />
         <entry key="app/src/main/res/layout/teacher_uncompleted_fragment_detail.xml" value="0.16485507246376813" />
       </map>
     </option>
